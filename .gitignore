@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Fichiers de config spécifiques
+*.pro.user
