@@ -6,12 +6,12 @@
 class ZippedBuffer
 {
 public:
-    ZippedBuffer();
+    ZippedBuffer(QString fileName, QByteArray cfileContent);
     void write(QDataStream &stream);
     void read(const QDataStream &stream);
 private:
-    QString fileName;
-    QByteArray compressedFileContent;
+    QString _fileName;
+    QByteArray _cFileContent;
 };
 
 #endif // ZIPPEDBUFFER_H
