@@ -5,7 +5,6 @@ CONFIG += qt
 
 SOURCES += main.cpp \
     filepool.cpp \
-    worker.cpp \
     zipper.cpp \
     zippedbuffer.cpp \
     zippedbufferpool.cpp \
@@ -14,7 +13,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     filepool.h \
-    worker.h \
     zipper.h \
     zippedbuffer.h \
     zippedbufferpool.h \
