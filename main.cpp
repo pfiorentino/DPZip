@@ -1,6 +1,8 @@
 #include <iostream>
 #include "filepool.h"
 
+#include <QElapsedTimer>
+
 using namespace std;
 
 int main()
@@ -12,6 +14,10 @@ int main()
     cout << "Done" << endl;
     cout << "Number of files: " << pool.count() << endl;
 
+    QElapsedTimer timer;
+    timer.start();
+
+    cout << " done in " << timer.elapsed() << "ms" << endl;
 
     return 0;
 }

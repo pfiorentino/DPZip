@@ -1,2 +1,2 @@
-# Kompressor
+# DPZip
 Projet C++
