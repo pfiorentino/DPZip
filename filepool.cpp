@@ -1,6 +1,7 @@
 #include "filepool.h"
 #include <QDir>
 #include <QMutexLocker>
+#include <QDebug>
 
 FilePool::FilePool(const QString &folder)
 {
@@ -19,7 +20,7 @@ void FilePool::findFileInFolderAndSubfolders(const QString &folder)
             findFileInFolderAndSubfolders(entry.filePath());
         }
         else if(entry.isFile() == true) {
-            // it is a file,
+            // it is a file
             // Store it in the files_ member
             files_.append(entry.absoluteFilePath());
         }

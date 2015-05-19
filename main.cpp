@@ -1,23 +1,11 @@
-#include <iostream>
-#include "filepool.h"
-
-#include <QElapsedTimer>
-
-using namespace std;
+#include "dpzip.h"
+#include <QDebug>
+#include <unistd.h>
 
 int main()
 {
-    cout << "Building pool" << endl;
-
-    FilePool pool("/Users/paul/test_cpp");
-
-    cout << "Done" << endl;
-    cout << "Number of files: " << pool.count() << endl;
-
-    QElapsedTimer timer;
-    timer.start();
-
-    cout << " done in " << timer.elapsed() << "ms" << endl;
+    DPZip app(8);
+    app.compress("/Users/paul/Downloads", "/Users/paul/pipo.ecf");
 
     return 0;
 }

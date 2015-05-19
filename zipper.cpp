@@ -1,5 +1,6 @@
 #include "zipper.h"
 
+#include <QDebug>
 #include <QFile>
 
 #include "filepool.h"
@@ -22,9 +23,12 @@ void Zipper::run(){
 
 void Zipper::processFile(const QString &fileName) {
     QFile file(fileName);
-    QByteArray fileByteArray;
 
     if (file.open(QFile::ReadOnly) == true){
-        _zippedPool.put(ZippedBuffer(fileName, qCompress(file.readAll())));
+        ZippedBuffer zb = ZippedBuffer();
+        zb.setFileName(fileName);
+        zb.setCFileContent(qCompress(file.readAll()));
+        //sleep(1);
+        _zippedPool.put(zb);
     }
 }
