@@ -26,7 +26,7 @@ bool DPZip::compress(const QString &folder, const QString &ecfFileName) {
     typedef std::unique_ptr<Zipper> ZipperPtr;
     std::list<ZipperPtr> zippers;
     for(int i = 0;i < _numThreads;++i) {
-        auto ptr = new Zipper(pool, cPool);
+        auto ptr = new Zipper(pool, cPool, folder);
         zippers.push_back(ZipperPtr(ptr));
         zippers.back()->start();
         qDebug() << "Zipper" << i << "launched";
@@ -35,7 +35,7 @@ bool DPZip::compress(const QString &folder, const QString &ecfFileName) {
     qDebug() << " ";
 
     while(zippers.empty() == false) {
-        bool res = zippers.front()->wait();
+        zippers.front()->wait();
         zippers.pop_front();
     }
 

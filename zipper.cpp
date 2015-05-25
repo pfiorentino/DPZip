@@ -6,8 +6,8 @@
 #include "filepool.h"
 #include "zippedbufferpool.h"
 
-Zipper::Zipper(FilePool &filePool, ZippedBufferPool &zippedPool):
-    _filePool(filePool), _zippedPool(zippedPool)
+Zipper::Zipper(FilePool &filePool, ZippedBufferPool &zippedPool, const QString &rootDir):
+    _filePool(filePool), _zippedPool(zippedPool), _rootDir(rootDir)
 {
 }
 
@@ -26,7 +26,9 @@ void Zipper::processFile(const QString &fileName) {
 
     if (file.open(QFile::ReadOnly) == true){
         ZippedBuffer zb = ZippedBuffer();
-        zb.setFileName(fileName);
+        QString relativeName = fileName;
+        relativeName.replace(_rootDir, "");
+        zb.setFileName(relativeName);
         zb.setCFileContent(qCompress(file.readAll()));
         //sleep(1);
         _zippedPool.put(zb);

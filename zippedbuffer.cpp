@@ -22,6 +22,7 @@ void ZippedBuffer::write(QDataStream &stream) {
 }
 
 void ZippedBuffer::read(const QDataStream &stream) {
-
+    stream >> _fileName;
+    stream >> _cFileContent;
 }
 
