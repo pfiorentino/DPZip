@@ -1,5 +1,7 @@
 #include "datapool.h"
 
+#include "zippedbuffer.h"
+
 template<typename T>
 DataPool<T>::DataPool()
 {
@@ -33,8 +35,17 @@ QPair<bool, T> DataPool<T>::tryGet() {
 }
 
 template<typename T>
+int DataPool<T>::count() {
+    QMutexLocker locker(&_mutex);
+    return _elements.size();
+}
+
+template<typename T>
 void DataPool<T>::done() {
     QMutexLocker locker(&_mutex);
     _done = true;
     _waitCondition.wakeAll();
 }
+
+template class DataPool<QString>;
+template class DataPool<ZippedBuffer>;

@@ -2,22 +2,20 @@
 
 #include <QDebug>
 #include <QFile>
+#include <QPair>
 
-#include "filepool.h"
-#include "zippedbufferpool.h"
-
-Zipper::Zipper(FilePool &filePool, ZippedBufferPool &zippedPool, const QString &rootDir):
+Zipper::Zipper(DataPool<QString> &filePool, DataPool<ZippedBuffer> &zippedPool, const QString &rootDir):
     _filePool(filePool), _zippedPool(zippedPool), _rootDir(rootDir)
 {
 }
 
 void Zipper::run(){
-    QString fileName;
-    fileName = _filePool.tryGetFile();
+    QPair<bool, QString> fileName;
+    fileName = _filePool.tryGet();
 
-    while (fileName != "") {
-        processFile(fileName);
-        fileName = _filePool.tryGetFile();
+    while (fileName.first) {
+        processFile(fileName.second);
+        fileName = _filePool.tryGet();
     }
 }
 
@@ -30,7 +28,9 @@ void Zipper::processFile(const QString &fileName) {
         relativeName.replace(_rootDir, "");
         zb.setFileName(relativeName);
         zb.setCFileContent(qCompress(file.readAll()));
+        //zb.setCFileContent(file.readAll());
         //sleep(1);
         _zippedPool.put(zb);
     }
 }
+

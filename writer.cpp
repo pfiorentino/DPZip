@@ -5,7 +5,7 @@
 #include <QDataStream>
 
 
-Writer::Writer(ZippedBufferPool &zippedPool, QString ecfFileName):
+Writer::Writer(DataPool<ZippedBuffer> &zippedPool, QString ecfFileName):
     _zippedPool(zippedPool), _ecfFileName(ecfFileName)
 {
 }

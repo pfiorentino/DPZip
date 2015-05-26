@@ -11,8 +11,9 @@ public:
     void setFileName(const QString &fileName);
     const QString getFileName();
     void setCFileContent(const QByteArray &cFileContent);
+    const QByteArray getCFileContent();
     void write(QDataStream &stream);
-    void read(const QDataStream &stream);
+    void read(QDataStream &stream);
 private:
     QString _fileName;
     QByteArray _cFileContent;

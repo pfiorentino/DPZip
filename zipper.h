@@ -4,18 +4,18 @@
 #include <QThread>
 #include <QString>
 
-class FilePool;
-class ZippedBufferPool;
+#include "zippedbuffer.h"
+#include "datapool.h"
 
 class Zipper : public QThread
 {
 public:
-    Zipper(FilePool &filePool, ZippedBufferPool &zippedPool, const QString &rootDir);
+    Zipper(DataPool<QString> &filePool, DataPool<ZippedBuffer> &zippedPool, const QString &rootDir);
     virtual void run();
 private:
     void processFile(const QString &fileName);
-    FilePool &_filePool;
-    ZippedBufferPool &_zippedPool;
+    DataPool<QString> &_filePool;
+    DataPool<ZippedBuffer> &_zippedPool;
     const QString &_rootDir;
 };
 
