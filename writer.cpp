@@ -5,8 +5,8 @@
 #include <QDataStream>
 
 
-Writer::Writer(DataPool<ZippedBuffer> &zippedPool, QString ecfFileName):
-    _zippedPool(zippedPool), _ecfFileName(ecfFileName)
+Writer::Writer(DataPool<DataBuffer> &zippedFilesPool, QString ecfFileName):
+    _zippedFilesPool(zippedFilesPool), _ecfFileName(ecfFileName)
 {
 }
 
@@ -16,12 +16,12 @@ void Writer::run(){
 
     if(file.open(QFile::WriteOnly) == true) {
         QDataStream stream(&file);
-        QPair<bool, ZippedBuffer> pair = _zippedPool.tryGet();
+        QPair<bool, DataBuffer> pair = _zippedFilesPool.tryGet();
 
         while (pair.first) {
             pair.second.write(stream);
             ++count;
-            pair = _zippedPool.tryGet();
+            pair = _zippedFilesPool.tryGet();
         }
     }
 

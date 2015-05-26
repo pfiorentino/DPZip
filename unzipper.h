@@ -4,17 +4,17 @@
 #include <QThread>
 #include <QString>
 
-#include "zippedbuffer.h"
+#include "databuffer.h"
 #include "datapool.h"
 
 class Unzipper : public QThread
 {
 public:
-    Unzipper(DataPool<ZippedBuffer> &cFiles, DataPool<ZippedBuffer> &ucFiles);
+    Unzipper(DataPool<DataBuffer> &zippedFilesPool, DataPool<DataBuffer> &unzippedFilesPool);
     virtual void run();
 private:
-    DataPool<ZippedBuffer> &_cFiles;
-    DataPool<ZippedBuffer> &_ucFiles;
+    DataPool<DataBuffer> &_zippedFilesPool;
+    DataPool<DataBuffer> &_unzippedFilesPool;
 };
 
 #endif // UNZIPPER_H

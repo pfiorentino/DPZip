@@ -14,11 +14,11 @@ DPZip::DPZip(const int numThread):
 {
 }
 
-void DPZip::compress(const QString &folder, const QString &ecfFileName) {
+void DPZip::compress(const QString &folder, const QString &ecfFileName, bool compressHiddenFiles) {
     qDebug() << endl << "-> Building pools...";
     DataPool<QString> inPool;
-    DataPool<ZippedBuffer> outPool;
-    findFileInFolderAndSubfolders(folder, inPool);
+    DataPool<DataBuffer> outPool;
+    findFileInFolderAndSubfolders(folder, inPool, compressHiddenFiles);
     inPool.done();
     qDebug() << "Pools built (" << inPool.count() << "files )";
 
@@ -47,26 +47,26 @@ void DPZip::compress(const QString &folder, const QString &ecfFileName) {
 
     w.wait();
 
-    qDebug() << "Done :)";
+    qDebug() << "Done =)";
 }
 
-void DPZip::uncompress(const QString &ecfFileName, const QString &folder) {
-    DataPool<ZippedBuffer> compressedFiles;
-    DataPool<ZippedBuffer> uncompressedFiles;
+void DPZip::uncompress(const QString &ecfFileName, const QString &outFolder) {
+    DataPool<DataBuffer> zippedPool;
+    DataPool<DataBuffer> unzippedPool;
 
     qDebug() << endl << "-> Launching reader...";
-    Reader r(ecfFileName, compressedFiles);
+    Reader r(ecfFileName, zippedPool);
     r.start();
 
     qDebug() << endl << "-> Launching writer...";
-    UCFileWriter fw(uncompressedFiles, folder);
+    UCFileWriter fw(unzippedPool, outFolder);
     fw.start();
 
     qDebug() << endl << "-> Launching unzippers...";
     typedef std::unique_ptr<Unzipper> UnZipperPtr;
     std::list<UnZipperPtr> unZippers;
     for(int i = 0;i < _numThreads;++i) {
-        auto ptr = new Unzipper(compressedFiles, uncompressedFiles);
+        auto ptr = new Unzipper(zippedPool, unzippedPool);
         unZippers.push_back(UnZipperPtr(ptr));
         unZippers.back()->start();
         qDebug() << "Unzipper" << i << "launched";
@@ -79,25 +79,31 @@ void DPZip::uncompress(const QString &ecfFileName, const QString &folder) {
         unZippers.pop_front();
     }
 
-    uncompressedFiles.done();
+    unzippedPool.done();
 
     r.wait();
     fw.wait();
 
-    qDebug() << "Done :)";
+    qDebug() << "Done =)";
 }
 
-void DPZip::findFileInFolderAndSubfolders(const QString &folder, DataPool<QString> &pool)
+void DPZip::findFileInFolderAndSubfolders(const QString &folder, DataPool<QString> &pool, bool zipHiddenFiles)
 {
     QDir dir(folder);
     // list all the entries of the current folder
-    foreach (const QFileInfo &entry,
-             dir.entryInfoList(QDir::AllEntries | QDir::NoDotAndDotDot)) {
+    QFileInfoList filesList;
+    if (zipHiddenFiles){
+        filesList = dir.entryInfoList(QDir::AllEntries | QDir::Hidden | QDir::NoDotAndDotDot);
+    } else {
+        filesList = dir.entryInfoList(QDir::AllEntries | QDir::NoDotAndDotDot);
+    }
+
+    foreach (const QFileInfo &entry, filesList) {
         if( entry.isDir() == true )
         {
             // it is a folder, recursive call to fill the files_
             // member with the files contained in the subfolder
-            findFileInFolderAndSubfolders(entry.filePath(), pool);
+            findFileInFolderAndSubfolders(entry.filePath(), pool, zipHiddenFiles);
         }
         else if(entry.isFile() == true) {
             // it is a file

@@ -4,8 +4,8 @@
 #include <QFile>
 #include <QDataStream>
 
-Reader::Reader(const QString ecfFileName, DataPool<ZippedBuffer> &zippedPool):
-    _ecfFileName(ecfFileName), _zippedPool(zippedPool)
+Reader::Reader(const QString ecfFileName, DataPool<DataBuffer> &zippedFilesPool):
+    _ecfFileName(ecfFileName), _zippedFilesPool(zippedFilesPool)
 {
 }
 
@@ -15,20 +15,18 @@ void Reader::run(){
 
     if(file.open(QFile::ReadOnly) == true) {
         QDataStream stream(&file);
-        ZippedBuffer cFile;
+        DataBuffer cFile;
         cFile.read(stream);
 
         while (cFile.getFileName() != "") {
-            qDebug() << cFile.getFileName();
-
-            _zippedPool.put(cFile);
+            _zippedFilesPool.put(cFile);
             ++count;
             cFile.read(stream);
         }
     }
 
     file.close();
-    _zippedPool.done();
+    _zippedFilesPool.done();
 
     qDebug() << count << "file(s) extracted";
 }

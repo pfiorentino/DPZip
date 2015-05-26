@@ -5,29 +5,30 @@
 #include <QDir>
 #include <QDebug>
 
-UCFileWriter::UCFileWriter(DataPool<ZippedBuffer> &ucFilesPool, const QString &rootFolder):
-    _ucFilesPool(ucFilesPool), _rootFolder(rootFolder)
+UCFileWriter::UCFileWriter(DataPool<DataBuffer> &unzippedFilesPool, const QString &destFolder):
+    _unzippedFilesPool(unzippedFilesPool), _destFolder(destFolder)
 {
 }
 
 void UCFileWriter::run() {
     int count = 0;
 
-    QPair<bool, ZippedBuffer> fileToWrite = _ucFilesPool.tryGet();
+    QPair<bool, DataBuffer> fileToWrite = _unzippedFilesPool.tryGet();
 
     while (fileToWrite.first) {
-        QFile file(_rootFolder+fileToWrite.second.getFileName());
+        QFile file(_destFolder+fileToWrite.second.getFileName());
         QDir dir("/");
         dir.mkpath(QFileInfo(file).dir().absolutePath());
 
         if(file.open(QFile::WriteOnly) == true) {
             QDataStream stream(&file);
-            fileToWrite.second.write(stream);
+            fileToWrite.second.writeRawData(stream);
+
             ++count;
             file.close();
         }
 
-        fileToWrite = _ucFilesPool.tryGet();
+        fileToWrite = _unzippedFilesPool.tryGet();
     }
 
     qDebug() << count << "file(s) written";

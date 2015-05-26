@@ -11,8 +11,10 @@ class DataPool
 {
 public:
     DataPool();
+
     void put(T &element);
     QPair<bool, T> tryGet();
+
     int count();
     void done();
 private:

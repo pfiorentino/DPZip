@@ -1,20 +1,24 @@
 #include "unzipper.h"
+#include <QDebug>
 
-Unzipper::Unzipper(DataPool<ZippedBuffer> &cFiles, DataPool<ZippedBuffer> &ucFiles):
-    _cFiles(cFiles), _ucFiles(ucFiles)
+Unzipper::Unzipper(DataPool<DataBuffer> &zippedFilesPool, DataPool<DataBuffer> &unzippedFilesPool):
+    _zippedFilesPool(zippedFilesPool), _unzippedFilesPool(unzippedFilesPool)
 {
-
 }
 
 void Unzipper::run() {
-    QPair<bool, ZippedBuffer> fileToUncompress;
-    fileToUncompress = _cFiles.tryGet();
+    QPair<bool, DataBuffer> pairToUnzip;
+    pairToUnzip = _zippedFilesPool.tryGet();
 
-    while (fileToUncompress.first) {
-        ZippedBuffer uncompressedFile;
-        uncompressedFile.setFileName(fileToUncompress.second.getFileName());
-        uncompressedFile.setCFileContent(qUncompress(fileToUncompress.second.getCFileContent()));
-        _ucFiles.put(uncompressedFile);
-        fileToUncompress = _cFiles.tryGet();
+    while (pairToUnzip.first) {
+        DataBuffer zippedFile = pairToUnzip.second;
+
+        DataBuffer unzippedFile;
+        unzippedFile.setFileName(zippedFile.getFileName());
+        unzippedFile.setData(qUncompress(zippedFile.getData()));
+
+        _unzippedFilesPool.put(unzippedFile);
+
+        pairToUnzip = _zippedFilesPool.tryGet();
     }
 }

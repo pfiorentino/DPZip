@@ -4,17 +4,17 @@
 #include <QThread>
 #include <QString>
 
-#include "zippedbuffer.h"
+#include "databuffer.h"
 #include "datapool.h"
 
 class Reader : public QThread
 {
 public:
-    Reader(const QString ecfFileName, DataPool<ZippedBuffer> &zippedPool);
+    Reader(const QString ecfFileName, DataPool<DataBuffer> &_zippedFilesPool);
     virtual void run();
 private:
     QString _ecfFileName;
-    DataPool<ZippedBuffer> &_zippedPool;
+    DataPool<DataBuffer> &_zippedFilesPool;
 };
 
 #endif // READER_H

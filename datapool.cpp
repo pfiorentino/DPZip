@@ -1,6 +1,6 @@
 #include "datapool.h"
 
-#include "zippedbuffer.h"
+#include "databuffer.h"
 
 template<typename T>
 DataPool<T>::DataPool()
@@ -48,4 +48,4 @@ void DataPool<T>::done() {
 }
 
 template class DataPool<QString>;
-template class DataPool<ZippedBuffer>;
+template class DataPool<DataBuffer>;

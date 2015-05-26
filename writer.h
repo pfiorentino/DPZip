@@ -4,16 +4,16 @@
 #include <QThread>
 #include <QString>
 
-#include "zippedbuffer.h"
+#include "databuffer.h"
 #include "datapool.h"
 
 class Writer : public QThread
 {
 public:
-    Writer(DataPool<ZippedBuffer> &zippedPool, const QString ecfFileName);
+    Writer(DataPool<DataBuffer> &zippedFilesPool, const QString ecfFileName);
     virtual void run();
 private:
-    DataPool<ZippedBuffer> &_zippedPool;
+    DataPool<DataBuffer> &_zippedFilesPool;
     QString _ecfFileName;
 };
 

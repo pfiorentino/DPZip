@@ -5,16 +5,16 @@
 #include <QString>
 
 #include "datapool.h"
-#include "zippedbuffer.h"
+#include "databuffer.h"
 
 class UCFileWriter : public QThread
 {
 public:
-    UCFileWriter(DataPool<ZippedBuffer> &ucFilesPool, const QString &rootFolder);
+    UCFileWriter(DataPool<DataBuffer> &unzippedFilesPool, const QString &destFolder);
     virtual void run();
 private:
-    DataPool<ZippedBuffer> &_ucFilesPool;
-    QString _rootFolder;
+    DataPool<DataBuffer> &_unzippedFilesPool;
+    QString _destFolder;
 };
 
 #endif // UCFILEWRITER_H
