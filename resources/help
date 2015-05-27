@@ -10,8 +10,11 @@ Compresser un dossier :
 Décompresser un fichier .ecf :
   uncompress file_to_uncompress.ecf destination/folder/
 
-Définir le nombre de threads (entre 1 et 48) :
+Définir le nombre de threads entre 1 et 48 (par défaut 4) :
   setThreadsNumber <number>
+
+Définir si la compression doit traiter les fichiers cachés (par défaut false) :
+  compressHiddenFiles <bool>
 
 Quitter l'application :
   quit

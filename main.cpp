@@ -18,6 +18,7 @@ void displayRessource(const QString &resourceName) {
 
 int main() {
     int threadsNumber = 4;
+    bool compressHiddenFiles = false;
     string input;
 
     displayRessource("banner");
@@ -34,10 +35,12 @@ int main() {
             } else {
                 QStringList splittedInput = QString::fromStdString(input).split(" ", QString::SkipEmptyParts);
                 if (splittedInput.size() == 3 && (splittedInput.at(0) == "compress" || splittedInput.at(0) == "uncompress")) {
+                    DPZip app(threadsNumber);
+
                     if (splittedInput.at(0) == "compress") {
-
+                        app.compress(splittedInput.at(1), splittedInput.at(2), compressHiddenFiles);
                     } else if (splittedInput.at(0) == "uncompress") {
-
+                        app.uncompress(splittedInput.at(1), splittedInput.at(2));
                     }
                 } else if (splittedInput.size() == 2 && splittedInput.at(0) == "setThreadsNumber") {
                     threadsNumber = splittedInput.at(1).toInt();
@@ -47,6 +50,9 @@ int main() {
                     } else {
                         cout << "Threads number successfuly set to " << threadsNumber << endl;
                     }
+                } else if (splittedInput.size() == 2 && splittedInput.at(0) == "compressHiddenFiles") {
+                    compressHiddenFiles = splittedInput.at(1) == "true" || splittedInput.at(1) == "1";
+                    cout << "Compress hidden files successfuly set to " << compressHiddenFiles << endl;
                 } else {
                     cout << "Invalid input. Type \"help\" to see all supported commands." << endl;
                 }
