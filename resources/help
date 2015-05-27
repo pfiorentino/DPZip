@@ -1,0 +1,22 @@
+
+--------------------------------------------------------------------------------
+
+DPZip v1.0 - Help
+by Paul FIORENTINO and Damien MAURIN - I4 - Classe 2
+
+Compresser un dossier :
+  compress folder/to/compress/ out_file.ecf
+
+Décompresser un fichier .ecf :
+  uncompress file_to_uncompress.ecf destination/folder/
+
+Définir le nombre de threads (entre 1 et 48) :
+  setThreadsNumber <number>
+
+Quitter l'application :
+  quit
+
+Et qui sait, peut-être que la réponse à la grande question sur la vie,
+l'univers et le reste est dans ce programme ;)
+
+--------------------------------------------------------------------------------
