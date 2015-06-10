@@ -1,0 +1,86 @@
+\hypertarget{class_file_pool}{\section{Référence de la classe File\+Pool}
+\label{class_file_pool}\index{File\+Pool@{File\+Pool}}
+}
+
+
+La class \hyperlink{class_file_pool}{File\+Pool} représente un ensemble de fichier à traiter.  
+
+
+
+
+{\ttfamily \#include $<$filepool.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_file_pool_a7732f184a14aaf0db1f9f9e5a27f2504}{File\+Pool} (const Q\+String \&folder)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_file_pool}{File\+Pool} contruit un nouveau pool en l'initialisant la liste des fichiers à partir du répertoire donné. Dès qu'il est construit, le pool peut être utilisé. \end{DoxyCompactList}\item 
+int \hyperlink{class_file_pool_abdd3209d2afb8f8ba350901871286908}{count} ()
+\begin{DoxyCompactList}\small\item\em count retourne le nombre de fichiers restant dans le pool \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_file_pool_a520090a5679eb3270186dbec0c84c204}{try\+Get\+File} ()
+\begin{DoxyCompactList}\small\item\em try\+Get\+File permet de récupérer le nom d'un fichier. Si il n'y a plus de fichiers, cette méthode retourne une chaine vide. Le nom de fichier retourné est supprimé du pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+La class \hyperlink{class_file_pool}{File\+Pool} représente un ensemble de fichier à traiter. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_file_pool_a7732f184a14aaf0db1f9f9e5a27f2504}{\index{File\+Pool@{File\+Pool}!File\+Pool@{File\+Pool}}
+\index{File\+Pool@{File\+Pool}!File\+Pool@{File\+Pool}}
+\subsubsection[{File\+Pool}]{\setlength{\rightskip}{0pt plus 5cm}File\+Pool\+::\+File\+Pool (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{folder}
+\end{DoxyParamCaption}
+)}}\label{class_file_pool_a7732f184a14aaf0db1f9f9e5a27f2504}
+
+
+\hyperlink{class_file_pool}{File\+Pool} contruit un nouveau pool en l'initialisant la liste des fichiers à partir du répertoire donné. Dès qu'il est construit, le pool peut être utilisé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em folder} & répertoire à partir duquel les fichiers sont recherchés \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_file_pool_abdd3209d2afb8f8ba350901871286908}{\index{File\+Pool@{File\+Pool}!count@{count}}
+\index{count@{count}!File\+Pool@{File\+Pool}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}int File\+Pool\+::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_file_pool_abdd3209d2afb8f8ba350901871286908}
+
+
+count retourne le nombre de fichiers restant dans le pool 
+
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Cette méthode est thread-\/safe 
+\end{DoxyNote}
+\hypertarget{class_file_pool_a520090a5679eb3270186dbec0c84c204}{\index{File\+Pool@{File\+Pool}!try\+Get\+File@{try\+Get\+File}}
+\index{try\+Get\+File@{try\+Get\+File}!File\+Pool@{File\+Pool}}
+\subsubsection[{try\+Get\+File}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String File\+Pool\+::try\+Get\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_file_pool_a520090a5679eb3270186dbec0c84c204}
+
+
+try\+Get\+File permet de récupérer le nom d'un fichier. Si il n'y a plus de fichiers, cette méthode retourne une chaine vide. Le nom de fichier retourné est supprimé du pool. 
+
+\begin{DoxyReturn}{Renvoie}
+Un nom de fichier ou une chaine vide 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Cette méthode est thread-\/safe 
+\end{DoxyNote}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+filepool.\+h\item 
+filepool.\+cpp\end{DoxyCompactItemize}

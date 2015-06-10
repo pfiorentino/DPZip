@@ -1,0 +1,87 @@
+\hypertarget{class_data_pool}{\section{Référence du modèle de la classe Data\+Pool$<$ T $>$}
+\label{class_data_pool}\index{Data\+Pool$<$ T $>$@{Data\+Pool$<$ T $>$}}
+}
+
+
+La classe \hyperlink{class_data_pool}{Data\+Pool} est une structure de donnée qui peut contenir des données de type spécifié par $<$template T$>$ Toutes les méthodes de cette classe sont thread-\/safe.  
+
+
+
+
+{\ttfamily \#include $<$datapool.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_data_pool_a0e93f42b7be1b1ffa03a79a9220cca2c}{\hyperlink{class_data_pool_a0e93f42b7be1b1ffa03a79a9220cca2c}{Data\+Pool} ()}\label{class_data_pool_a0e93f42b7be1b1ffa03a79a9220cca2c}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_data_pool}{Data\+Pool} contruit un nouveau \hyperlink{class_data_pool}{Data\+Pool} de données thread-\/safe. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_pool_af87b1ba98e148de273975fbbf2d6eb49}{put} (T \&element)
+\begin{DoxyCompactList}\small\item\em put ajoute un nouvel élément au \hyperlink{class_data_pool}{Data\+Pool} thread-\/safe \end{DoxyCompactList}\item 
+Q\+Pair$<$ bool, T $>$ \hyperlink{class_data_pool_a4b46a347e1fa6b3eeafed9d77eb7eaa7}{try\+Get} ()
+\begin{DoxyCompactList}\small\item\em trye\+Get tente de récupérer un élément du \hyperlink{class_data_pool}{Data\+Pool} thread-\/safe \end{DoxyCompactList}\item 
+int \hyperlink{class_data_pool_a0ee10a72e547a3de6c24a3997a961c85}{count} ()
+\begin{DoxyCompactList}\small\item\em count retourne le nombre d'éléments encore présents dans le \hyperlink{class_data_pool}{Data\+Pool} thread-\/safe \end{DoxyCompactList}\item 
+\hypertarget{class_data_pool_a0760141bdcfcbd2d9992a5ccaf064ce8}{void \hyperlink{class_data_pool_a0760141bdcfcbd2d9992a5ccaf064ce8}{done} ()}\label{class_data_pool_a0760141bdcfcbd2d9992a5ccaf064ce8}
+
+\begin{DoxyCompactList}\small\item\em done signale au \hyperlink{class_data_pool}{Data\+Pool} qu'aucun nouvel élément sera ajouté permet de libérer la Q\+Wait\+Condition \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\subsubsection*{template$<$typename T$>$class Data\+Pool$<$ T $>$}
+
+La classe \hyperlink{class_data_pool}{Data\+Pool} est une structure de donnée qui peut contenir des données de type spécifié par $<$template T$>$ Toutes les méthodes de cette classe sont thread-\/safe. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_data_pool_a0ee10a72e547a3de6c24a3997a961c85}{\index{Data\+Pool@{Data\+Pool}!count@{count}}
+\index{count@{count}!Data\+Pool@{Data\+Pool}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ int {\bf Data\+Pool}$<$ T $>$\+::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_pool_a0ee10a72e547a3de6c24a3997a961c85}
+
+
+count retourne le nombre d'éléments encore présents dans le \hyperlink{class_data_pool}{Data\+Pool} thread-\/safe 
+
+\begin{DoxyReturn}{Renvoie}
+nombre d'éléments contenus dans le pool 
+\end{DoxyReturn}
+\hypertarget{class_data_pool_af87b1ba98e148de273975fbbf2d6eb49}{\index{Data\+Pool@{Data\+Pool}!put@{put}}
+\index{put@{put}!Data\+Pool@{Data\+Pool}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Data\+Pool}$<$ T $>$\+::put (
+\begin{DoxyParamCaption}
+\item[{T \&}]{element}
+\end{DoxyParamCaption}
+)}}\label{class_data_pool_af87b1ba98e148de273975fbbf2d6eb49}
+
+
+put ajoute un nouvel élément au \hyperlink{class_data_pool}{Data\+Pool} thread-\/safe 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em element} & élément à ajouter \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_data_pool_a4b46a347e1fa6b3eeafed9d77eb7eaa7}{\index{Data\+Pool@{Data\+Pool}!try\+Get@{try\+Get}}
+\index{try\+Get@{try\+Get}!Data\+Pool@{Data\+Pool}}
+\subsubsection[{try\+Get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+Pair$<$ bool, T $>$ {\bf Data\+Pool}$<$ T $>$\+::try\+Get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_pool_a4b46a347e1fa6b3eeafed9d77eb7eaa7}
+
+
+trye\+Get tente de récupérer un élément du \hyperlink{class_data_pool}{Data\+Pool} thread-\/safe 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Pair$<$bool, T$>$~\newline
+bool\+: true si l'élément récupéré est valide~\newline
+T\+: élément récupéré 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+datapool.\+h\item 
+datapool.\+cpp\end{DoxyCompactItemize}

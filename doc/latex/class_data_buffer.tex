@@ -1,0 +1,152 @@
+\hypertarget{class_data_buffer}{\section{Référence de la classe Data\+Buffer}
+\label{class_data_buffer}\index{Data\+Buffer@{Data\+Buffer}}
+}
+
+
+La classe \hyperlink{class_data_buffer}{Data\+Buffer} représente un fichier de données qu'il soit compressé ou à compresser il sera stocké de la même manière dans cette structure.  
+
+
+
+
+{\ttfamily \#include $<$databuffer.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_data_buffer_a83f823dc058fe550713806bb49dd9651}{\hyperlink{class_data_buffer_a83f823dc058fe550713806bb49dd9651}{Data\+Buffer} ()}\label{class_data_buffer_a83f823dc058fe550713806bb49dd9651}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_data_buffer}{Data\+Buffer} contruit un nouveau fichier en mémoire. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_buffer_a020c2a9e6f84f77fb7424845ae532da4}{set\+File\+Name} (const Q\+String \&file\+Name)
+\begin{DoxyCompactList}\small\item\em set\+File\+Name définit le nom du fichier \end{DoxyCompactList}\item 
+const Q\+String \hyperlink{class_data_buffer_ac63e75c4e19e45b2d70f1879c6f7e34e}{get\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em get\+File\+Name retourne le nom du fichier \end{DoxyCompactList}\item 
+void \hyperlink{class_data_buffer_ada256ca15ccca7e92c733bd45c939741}{set\+Data} (const Q\+Byte\+Array \&data)
+\begin{DoxyCompactList}\small\item\em set\+Data stocke les données brutes du fichier \end{DoxyCompactList}\item 
+const Q\+Byte\+Array \hyperlink{class_data_buffer_a37aa198c3266ac7fe4925157d6bfd0d1}{get\+Data} ()
+\begin{DoxyCompactList}\small\item\em get\+Data retourne les données brutes du fichier \end{DoxyCompactList}\item 
+void \hyperlink{class_data_buffer_a4c865943b6b4c3f802fefbdefdfc912a}{read} (Q\+Data\+Stream \&stream)
+\begin{DoxyCompactList}\small\item\em read récupère et désérialise un objet \hyperlink{class_data_buffer}{Data\+Buffer} contenu dans le Q\+Data\+Stream passé en paramètre \end{DoxyCompactList}\item 
+void \hyperlink{class_data_buffer_a859adb76758375b3aacffc42702277f3}{write} (Q\+Data\+Stream \&stream)
+\begin{DoxyCompactList}\small\item\em write sérialise un objet \hyperlink{class_data_buffer}{Data\+Buffer} dans un Q\+Data\+Stream passé en paramètre \end{DoxyCompactList}\item 
+void \hyperlink{class_data_buffer_a4cb04bf885a20c93622360b9f2615ba2}{write\+Raw\+Data} (Q\+Data\+Stream \&stream)
+\begin{DoxyCompactList}\small\item\em write écrit les données brutes dans un Q\+Data\+Stream Se différencie de write par le fait qu'elle écrive directement les données brutes et non l'objet sérialisé \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+La classe \hyperlink{class_data_buffer}{Data\+Buffer} représente un fichier de données qu'il soit compressé ou à compresser il sera stocké de la même manière dans cette structure. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_data_buffer_a37aa198c3266ac7fe4925157d6bfd0d1}{\index{Data\+Buffer@{Data\+Buffer}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{get\+Data}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+Byte\+Array Data\+Buffer\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_a37aa198c3266ac7fe4925157d6bfd0d1}
+
+
+get\+Data retourne les données brutes du fichier 
+
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\hypertarget{class_data_buffer_ac63e75c4e19e45b2d70f1879c6f7e34e}{\index{Data\+Buffer@{Data\+Buffer}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{get\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+String Data\+Buffer\+::get\+File\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_ac63e75c4e19e45b2d70f1879c6f7e34e}
+
+
+get\+File\+Name retourne le nom du fichier 
+
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\hypertarget{class_data_buffer_a4c865943b6b4c3f802fefbdefdfc912a}{\index{Data\+Buffer@{Data\+Buffer}!read@{read}}
+\index{read@{read}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Buffer\+::read (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{stream}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_a4c865943b6b4c3f802fefbdefdfc912a}
+
+
+read récupère et désérialise un objet \hyperlink{class_data_buffer}{Data\+Buffer} contenu dans le Q\+Data\+Stream passé en paramètre 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em stream} & Q\+Data\+Stream contenant les Buffers sérialisés \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_data_buffer_ada256ca15ccca7e92c733bd45c939741}{\index{Data\+Buffer@{Data\+Buffer}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{set\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Buffer\+::set\+Data (
+\begin{DoxyParamCaption}
+\item[{const Q\+Byte\+Array \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_ada256ca15ccca7e92c733bd45c939741}
+
+
+set\+Data stocke les données brutes du fichier 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & données du fichier \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_data_buffer_a020c2a9e6f84f77fb7424845ae532da4}{\index{Data\+Buffer@{Data\+Buffer}!set\+File\+Name@{set\+File\+Name}}
+\index{set\+File\+Name@{set\+File\+Name}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{set\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Buffer\+::set\+File\+Name (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{file\+Name}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_a020c2a9e6f84f77fb7424845ae532da4}
+
+
+set\+File\+Name définit le nom du fichier 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file\+Name} & le nom du fichier \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_data_buffer_a859adb76758375b3aacffc42702277f3}{\index{Data\+Buffer@{Data\+Buffer}!write@{write}}
+\index{write@{write}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Buffer\+::write (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{stream}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_a859adb76758375b3aacffc42702277f3}
+
+
+write sérialise un objet \hyperlink{class_data_buffer}{Data\+Buffer} dans un Q\+Data\+Stream passé en paramètre 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em stream} & Q\+Data\+Stream cible \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_data_buffer_a4cb04bf885a20c93622360b9f2615ba2}{\index{Data\+Buffer@{Data\+Buffer}!write\+Raw\+Data@{write\+Raw\+Data}}
+\index{write\+Raw\+Data@{write\+Raw\+Data}!Data\+Buffer@{Data\+Buffer}}
+\subsubsection[{write\+Raw\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+Buffer\+::write\+Raw\+Data (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{stream}
+\end{DoxyParamCaption}
+)}}\label{class_data_buffer_a4cb04bf885a20c93622360b9f2615ba2}
+
+
+write écrit les données brutes dans un Q\+Data\+Stream Se différencie de write par le fait qu'elle écrive directement les données brutes et non l'objet sérialisé 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em stream} & Q\+Data\+Stream cible \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+databuffer.\+h\item 
+databuffer.\+cpp\end{DoxyCompactItemize}

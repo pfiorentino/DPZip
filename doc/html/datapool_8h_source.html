@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>DPZip:  Fichier source de datapool.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">DPZip
+   </div>
+   <div id="projectbrief">DPZip est le meilleur compresseur de fichiers qui existe !</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('datapool_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">datapool.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATAPOOL_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DATAPOOL_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QPair&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QMutex&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QWaitCondition&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_data_pool.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_data_pool.html">DataPool</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_data_pool.html#a0e93f42b7be1b1ffa03a79a9220cca2c">DataPool</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_data_pool.html#af87b1ba98e148de273975fbbf2d6eb49">put</a>(T &amp;element);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QPair&lt;bool, T&gt; <a class="code" href="class_data_pool.html#a4b46a347e1fa6b3eeafed9d77eb7eaa7">tryGet</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_data_pool.html#a0ee10a72e547a3de6c24a3997a961c85">count</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_data_pool.html#a0760141bdcfcbd2d9992a5ccaf064ce8">done</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> _done = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QList&lt;T&gt; _elements;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QMutex _mutex;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    QWaitCondition _waitCondition;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif // DATAPOOL_H</span></div>
+<div class="ttc" id="class_data_pool_html_a0e93f42b7be1b1ffa03a79a9220cca2c"><div class="ttname"><a href="class_data_pool.html#a0e93f42b7be1b1ffa03a79a9220cca2c">DataPool::DataPool</a></div><div class="ttdeci">DataPool()</div><div class="ttdoc">DataPool contruit un nouveau DataPool de données thread-safe. </div><div class="ttdef"><b>Definition:</b> datapool.cpp:6</div></div>
+<div class="ttc" id="class_data_pool_html_a0ee10a72e547a3de6c24a3997a961c85"><div class="ttname"><a href="class_data_pool.html#a0ee10a72e547a3de6c24a3997a961c85">DataPool::count</a></div><div class="ttdeci">int count()</div><div class="ttdoc">count retourne le nombre d&#39;éléments encore présents dans le DataPool thread-safe </div><div class="ttdef"><b>Definition:</b> datapool.cpp:38</div></div>
+<div class="ttc" id="class_data_pool_html_a4b46a347e1fa6b3eeafed9d77eb7eaa7"><div class="ttname"><a href="class_data_pool.html#a4b46a347e1fa6b3eeafed9d77eb7eaa7">DataPool::tryGet</a></div><div class="ttdeci">QPair&lt; bool, T &gt; tryGet()</div><div class="ttdoc">tryeGet tente de récupérer un élément du DataPool thread-safe </div><div class="ttdef"><b>Definition:</b> datapool.cpp:18</div></div>
+<div class="ttc" id="class_data_pool_html"><div class="ttname"><a href="class_data_pool.html">DataPool</a></div><div class="ttdoc">La classe DataPool est une structure de donnée qui peut contenir des données de type spécifié par <te...</div><div class="ttdef"><b>Definition:</b> datapool.h:15</div></div>
+<div class="ttc" id="class_data_pool_html_af87b1ba98e148de273975fbbf2d6eb49"><div class="ttname"><a href="class_data_pool.html#af87b1ba98e148de273975fbbf2d6eb49">DataPool::put</a></div><div class="ttdeci">void put(T &amp;element)</div><div class="ttdoc">put ajoute un nouvel élément au DataPool thread-safe </div><div class="ttdef"><b>Definition:</b> datapool.cpp:11</div></div>
+<div class="ttc" id="class_data_pool_html_a0760141bdcfcbd2d9992a5ccaf064ce8"><div class="ttname"><a href="class_data_pool.html#a0760141bdcfcbd2d9992a5ccaf064ce8">DataPool::done</a></div><div class="ttdeci">void done()</div><div class="ttdoc">done signale au DataPool qu&#39;aucun nouvel élément sera ajouté permet de libérer la QWaitCondition ...</div><div class="ttdef"><b>Definition:</b> datapool.cpp:44</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>datapool.h</b></li>
+    <li class="footer">Généré le Mercredi 10 Juin 2015 15:52:10 pour DPZip par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

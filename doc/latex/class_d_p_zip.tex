@@ -1,0 +1,93 @@
+\hypertarget{class_d_p_zip}{\section{Référence de la classe D\+P\+Zip}
+\label{class_d_p_zip}\index{D\+P\+Zip@{D\+P\+Zip}}
+}
+
+
+La classe \hyperlink{class_d_p_zip}{D\+P\+Zip} est la classe principale de l'application elle permet la compression et la décompression de fichiers.  
+
+
+
+
+{\ttfamily \#include $<$dpzip.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_p_zip_ac6061f1fb5304fa46d2cb036faf513cb}{D\+P\+Zip} (const int num\+Threads)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_d_p_zip}{D\+P\+Zip} contructeur de la classe. \end{DoxyCompactList}\item 
+void \hyperlink{class_d_p_zip_a5210127d2033c46124082aaff4d0b389}{compress} (const Q\+String \&folder, const Q\+String \&ecf\+File\+Name, bool compress\+Hidden\+Files=false)
+\begin{DoxyCompactList}\small\item\em compress compresse un dossier dans un fichier .ecf \end{DoxyCompactList}\item 
+void \hyperlink{class_d_p_zip_a6e0195fe368f40cb232596cf135675e7}{uncompress} (const Q\+String \&ecf\+File\+Name, const Q\+String \&out\+Folder)
+\begin{DoxyCompactList}\small\item\em uncompress décompresse un fichier .ecf dans un répertoire donné \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+La classe \hyperlink{class_d_p_zip}{D\+P\+Zip} est la classe principale de l'application elle permet la compression et la décompression de fichiers. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_d_p_zip_ac6061f1fb5304fa46d2cb036faf513cb}{\index{D\+P\+Zip@{D\+P\+Zip}!D\+P\+Zip@{D\+P\+Zip}}
+\index{D\+P\+Zip@{D\+P\+Zip}!D\+P\+Zip@{D\+P\+Zip}}
+\subsubsection[{D\+P\+Zip}]{\setlength{\rightskip}{0pt plus 5cm}D\+P\+Zip\+::\+D\+P\+Zip (
+\begin{DoxyParamCaption}
+\item[{const int}]{num\+Threads}
+\end{DoxyParamCaption}
+)}}\label{class_d_p_zip_ac6061f1fb5304fa46d2cb036faf513cb}
+
+
+\hyperlink{class_d_p_zip}{D\+P\+Zip} contructeur de la classe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em num\+Threads} & nombre de threads de zipper ou de unzipper à lancer \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_d_p_zip_a5210127d2033c46124082aaff4d0b389}{\index{D\+P\+Zip@{D\+P\+Zip}!compress@{compress}}
+\index{compress@{compress}!D\+P\+Zip@{D\+P\+Zip}}
+\subsubsection[{compress}]{\setlength{\rightskip}{0pt plus 5cm}void D\+P\+Zip\+::compress (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{folder, }
+\item[{const Q\+String \&}]{ecf\+File\+Name, }
+\item[{bool}]{compress\+Hidden\+Files = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{class_d_p_zip_a5210127d2033c46124082aaff4d0b389}
+
+
+compress compresse un dossier dans un fichier .ecf 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em folder} & dossier à compresser \\
+\hline
+{\em ecf\+File\+Name} & fichier .ecf de destination \\
+\hline
+{\em compress\+Hidden\+Files} & ajouter ou non les fichiers cachés du système d'exploitation à l'archive \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_d_p_zip_a6e0195fe368f40cb232596cf135675e7}{\index{D\+P\+Zip@{D\+P\+Zip}!uncompress@{uncompress}}
+\index{uncompress@{uncompress}!D\+P\+Zip@{D\+P\+Zip}}
+\subsubsection[{uncompress}]{\setlength{\rightskip}{0pt plus 5cm}void D\+P\+Zip\+::uncompress (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{ecf\+File\+Name, }
+\item[{const Q\+String \&}]{out\+Folder}
+\end{DoxyParamCaption}
+)}}\label{class_d_p_zip_a6e0195fe368f40cb232596cf135675e7}
+
+
+uncompress décompresse un fichier .ecf dans un répertoire donné 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ecf\+File\+Name} & fichier à décompresser \\
+\hline
+{\em out\+Folder} & répertoire de destination, s'il n'existe pas il sera créé \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+dpzip.\+h\item 
+dpzip.\+cpp\end{DoxyCompactItemize}

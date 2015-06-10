@@ -8,7 +8,7 @@
 
 /**
  * @brief La classe DataPool est une structure de donnée qui
- * peut contenir des données de type spécifié par <template T>
+ * peut contenir des données de type spécifié par <template %T>
  * Toutes les méthodes de cette classe sont thread-safe
  */
 template<typename T>
@@ -30,8 +30,8 @@ public:
     /**
      * @brief tryeGet tente de récupérer un élément du DataPool
      * thread-safe
-     * @return QPair<bool, T>
-     * bool: true si l'élément récupéré est valide
+     * @return QPair<bool, T>\n
+     * bool: true si l'élément récupéré est valide\n
      * T: élément récupéré
      */
     QPair<bool, T> tryGet();
@@ -40,7 +40,7 @@ public:
      * @brief count retourne le nombre d'éléments encore présents
      * dans le DataPool
      * thread-safe
-     * @return
+     * @return nombre d'éléments contenus dans le pool
      */
     int count();
     /**

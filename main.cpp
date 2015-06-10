@@ -5,6 +5,21 @@
 #include <QFile>
 #include <iostream>
 
+/*! \mainpage DPZip Documentation
+ *
+ * \section author_sec Author
+ *
+ * Paul FIORENTINO - Damien MAURIN
+ *
+ * \section date_sec Date
+ *
+ * Juin 2015
+ *
+ * \section summary_sec Summary
+ *
+ * DPZip est un compresseur/décompresseur de fichier multithread
+ */
+
 using namespace std;
 
 void displayRessource(const QString &resourceName) {
