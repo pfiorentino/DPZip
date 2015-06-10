@@ -6,7 +6,7 @@
 #include <QDataStream>
 
 /**
- * @brief La class DataBuffer représente un fichier de données
+ * @brief La classe DataBuffer représente un fichier de données
  * qu'il soit compressé ou à compresser il sera stocké de la
  * même manière dans cette structure
  */
